@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <div>
+    <div style="
+    font-size: 60px;
+">
       aiyou-vue-diff
       <img
         alt="Vue logo"

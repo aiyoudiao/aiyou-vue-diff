@@ -9,7 +9,10 @@
     "build": "vue-cli-service build ./src/index.js",
     "lib": "vue-cli-service build --target lib ./src/index.js",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "tagpush": "npm run release && npm run push-tag",
+    "login": "npm login",
+    "tonpm": "nrm use npm && npm publish"
   },
   "dependencies": {
     "diff": "^5.0.0",

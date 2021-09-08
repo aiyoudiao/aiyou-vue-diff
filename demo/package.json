@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "aiyou-vue-diff": "file:..",
+    "aiyou-vue-diff": "^1.0.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
