@@ -1,0 +1,52 @@
+{
+  "name": "aiyou-vue-diff",
+  "version": "1.0.0",
+  "description": "一个带侧边栏的文本对比工具，没有花里胡哨的功能，就是正常的对比，如果你想给它加上其它功能，自己来。",
+  "private": false,
+  "main": "./dist/aiyou-vue-diff.umd.min.js",
+  "scripts": {
+    "serve": "vue-cli-service serve ./src/index.js",
+    "build": "vue-cli-service build ./src/index.js",
+    "lib": "vue-cli-service build --target lib ./src/index.js",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "diff": "^5.0.0",
+    "diff2html": "^3.4.11"
+  },
+  "devDependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.2.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiyoudiao/aiyou-vue-diff.git"
+  },
+  "keywords": [
+    "vue",
+    "diff",
+    "vue-diff",
+    "aiyou"
+  ],
+  "author": "哎哟迪奥",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aiyoudiao/aiyou-vue-diff/issues"
+  },
+  "homepage": "https://github.com/aiyoudiao/aiyou-vue-diff#readme"
+}
