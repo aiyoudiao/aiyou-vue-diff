@@ -56,12 +56,6 @@ module.exports = {
       .when(process.env.NODE_ENV === 'development', (config) =>
         config.devtool('cheap-source-map')
       );
-
-    config.set("externals", {
-      vue: "Vue",
-      // axios: 'axios',
-      // echarts: 'echarts'
-    });
   },
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
