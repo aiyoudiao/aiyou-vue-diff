@@ -47,40 +47,41 @@ module.exports = {
         }
       }
     },
-    configureWebpack: {
-      name: name,
-      resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"],
-        alias: {
-          "@": resolve("src"),
-        },
-      },
-      output: {
-        library: name,
-        libraryTarget: "umd2",
-        filename: name + ".js",
-        jsonpFunction: `webpackJsonp_${name}`,
+  },
+  configureWebpack: {
+    name: name,
+    resolve: {
+      extensions: [".ts", ".tsx", ".js", ".json"],
+      alias: {
+        "@": resolve("src"),
       },
     },
-    chainWebpack(config) {
-      config.set("externals", {
-        vue: "Vue",
-        // axios: 'axios',
-        // echarts: 'echarts'
-      });
+    output: {
+      library: name,
+      libraryTarget: "umd2",
+      filename: name + ".js",
+      jsonpFunction: `webpackJsonp_${name}`,
     },
-    css: {
-      // 是否使用css分离插件 ExtractTextPlugin
-      extract: false,
-      // 开启 CSS source maps?
-      sourceMap: false,
-      // 启用 CSS modules for all css / pre-processor files.
-      // modules: false,
-      // requireModuleExtension: true,
-      loaderOptions: {
-        scss: {
-          // 这里的选项会传递给 scss-loader
-        }
+  },
+  chainWebpack(config) {
+    config.set("externals", {
+      vue: "Vue",
+      // axios: 'axios',
+      // echarts: 'echarts'
+    });
+  },
+  css: {
+    // 是否使用css分离插件 ExtractTextPlugin
+    extract: false,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // 启用 CSS modules for all css / pre-processor files.
+    // modules: false,
+    // requireModuleExtension: true,
+    loaderOptions: {
+      scss: {
+        // 这里的选项会传递给 scss-loader
       }
     }
-  };
+  }
+}
