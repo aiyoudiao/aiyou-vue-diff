@@ -10,6 +10,7 @@
     "lib": "vue-cli-service build --target lib ./src/index.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "fix": "vue-cli-service lint --fix",
     "tagpush": "npm run release && npm run push-tag",
     "login": "npm login",
     "tonpm": "nrm use npm && npm publish"

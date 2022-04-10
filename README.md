@@ -123,6 +123,17 @@ github仓库中有相关的使用demo
 
 [github 链接](https://github.com/aiyoudiao/aiyou-vue-diff)
 
+
+### 仓库Demo使用
+
+demo 运行在 根目录下的Demo目录中。
+
+```js
+cd demo
+npm i
+npm run serve
+```
+
 ## 📞 社区交流
 
 aiyou-vue-diff 是**哎呦系列**中一员，之后还会有其它的成员陆续上来。
@@ -132,9 +143,9 @@ aiyou-vue-diff 是**哎呦系列**中一员，之后还会有其它的成员陆�
 
 ### 感谢以下开源项目
 
-diff：对比两个文本内容，生成一个对比后的js对象
-diff2html：将对比后的内容转成html来显示
-pagemap：没有直接下载这个依赖，而是把这个依赖的文件拷贝了一份，然后改了改里面的内容，让它支持我。
+diff：对比两个文本内容，生成一个对比后的js对象  
+diff2html：将对比后的内容转成html来显示  
+pagemap：没有直接下载这个依赖，而是把这个依赖的文件拷贝了一份，然后改了改里面的内容，让它支持我。  
 
 
 

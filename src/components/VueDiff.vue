@@ -142,7 +142,6 @@ export default {
         drag: "rgba(0,0,0,0.10)",
         interval: null,
       });
-
     },
 
     reInitMiniMap(val) {

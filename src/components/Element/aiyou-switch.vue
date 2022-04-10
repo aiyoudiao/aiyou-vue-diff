@@ -10,7 +10,7 @@
         :checked="isActive"
         @click="clickLable"
       />
-      <label class="onoffswitch-label"  @click="clickLable"></label>
+      <label class="onoffswitch-label" @click="clickLable"></label>
     </div>
     {{ inactiveText }}
   </div>

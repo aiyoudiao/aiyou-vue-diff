@@ -1,21 +1,23 @@
+/*
+ * File: vue.config.js                                                         *
+ * Project: demo                                                               *
+ * Created Date: 2022-04-10 19:10:40                                           *
+ * Author: aiyoudiao                                                           *
+ * -----                                                                       *
+ * Last Modified:  2022-04-10 19:10:43                                         *
+ * Modified By: aiyoudiao                                                      *
+ * -----                                                                       *
+ * Copyright (c) 2022 哎哟迪奥(码二)                                                 *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
 "use strict";
 
-const path = require("path");
-
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
-
-let name = require("./package.json").name;
-// name = "test";
-
 // NOTE: 端口号
-const port = 8080;
+const port = 8082
 
 module.exports = {
   publicPath: "/",
-  outputDir: "dist",
-  assetsDir: "static",
   lintOnSave: process.env.NODE_ENV === "development",
   productionSourceMap: false,
   // use thread-loader for babel & TS in production build
@@ -31,11 +33,11 @@ module.exports = {
   pluginOptions: {},
   // webpack-dev-server 相关配置
   devServer: {
-    host: "0.0.0.0",
+    host: '0.0.0.0',
     port: port,
     open: true,
     headers: {
-      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Origin': '*'
     },
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
@@ -44,30 +46,15 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           // ['^' + process.env.VUE_APP_BASE_API]: ''
-        },
-      },
-    },
-  },
-  configureWebpack: {
-    name: name,
-    resolve: {
-      extensions: [".ts", ".tsx", ".js", ".json"],
-      alias: {
-        "@": resolve("src"),
-      },
-    },
-    output: {
-      library: name,
-      libraryTarget: "umd2",
-      filename: name + ".js",
-      jsonpFunction: `webpackJsonp_${name}`,
+        }
+      }
     },
   },
   chainWebpack(config) {
     config
       // https://webpack.js.org/configuration/devtool/#development
-      .when(process.env.NODE_ENV === "development", (config) =>
-        config.devtool("cheap-source-map")
+      .when(process.env.NODE_ENV === 'development', (config) =>
+        config.devtool('cheap-source-map')
       );
 
     config.set("externals", {
@@ -87,7 +74,7 @@ module.exports = {
     loaderOptions: {
       scss: {
         // 这里的选项会传递给 scss-loader
-      },
-    },
-  },
-};
+      }
+    }
+  }
+}
