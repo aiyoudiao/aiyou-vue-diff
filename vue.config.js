@@ -9,6 +9,9 @@ function resolve(dir) {
 let name = require("./package.json").name;
 name = "test";
 
+// NOTE: 端口号
+const port = 8080
+
 module.exports = {
   publicPath: "/",
   outputDir: "dist",
@@ -26,40 +29,58 @@ module.exports = {
   // pwa: {},
   // 第三方插件配置
   pluginOptions: {},
-  configureWebpack: {
-    name: name,
-    resolve: {
-      extensions: [".ts", ".tsx", ".js", ".json"],
-      alias: {
-        "@": resolve("src"),
+  // webpack-dev-server 相关配置
+  devServer: {
+    host: '0.0.0.0',
+    port: port,
+    open: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    proxy: {
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      [process.env.VUE_APP_BASE_API]: {
+        target: `http://www.xxx.com/`,
+        changeOrigin: true,
+        pathRewrite: {
+          // ['^' + process.env.VUE_APP_BASE_API]: ''
+        }
+      }
+    },
+    configureWebpack: {
+      name: name,
+      resolve: {
+        extensions: [".ts", ".tsx", ".js", ".json"],
+        alias: {
+          "@": resolve("src"),
+        },
+      },
+      output: {
+        library: name,
+        libraryTarget: "umd2",
+        filename: name + ".js",
+        jsonpFunction: `webpackJsonp_${name}`,
       },
     },
-    output: {
-      library: name,
-      libraryTarget: "umd2",
-      filename: name + ".js",
-      jsonpFunction: `webpackJsonp_${name}`,
+    chainWebpack(config) {
+      config.set("externals", {
+        vue: "Vue",
+        // axios: 'axios',
+        // echarts: 'echarts'
+      });
     },
-  },
-  chainWebpack(config) {
-    config.set("externals", {
-      vue: "Vue",
-      // axios: 'axios',
-      // echarts: 'echarts'
-    });
-  },
-  css: {
-    // 是否使用css分离插件 ExtractTextPlugin
-    extract: false,
-    // 开启 CSS source maps?
-    sourceMap: false,
-    // 启用 CSS modules for all css / pre-processor files.
-    // modules: false,
-    // requireModuleExtension: true,
-    loaderOptions: {
-      scss: {
-        // 这里的选项会传递给 scss-loader
+    css: {
+      // 是否使用css分离插件 ExtractTextPlugin
+      extract: false,
+      // 开启 CSS source maps?
+      sourceMap: false,
+      // 启用 CSS modules for all css / pre-processor files.
+      // modules: false,
+      // requireModuleExtension: true,
+      loaderOptions: {
+        scss: {
+          // 这里的选项会传递给 scss-loader
+        }
       }
     }
-  }
-};
+  };
